@@ -1,10 +1,8 @@
-from collections import Counter
-
-def multimax(arr: list):
-    # TODO [Tudor] Improve to handle list of lists
+from collections import deque
+from typing import Iterable
+def multimax(items: Iterable):
     # TODO [Tudor] Improve to receive a kwargs with key to be used for values comparison
-    if not arr:
+    if not items:
         return []
-    counts = Counter(arr)
-    max_val = max(counts.keys())
-    return [max_val] * counts[max_val]
+    items = deque(items)
+    return [val for val in items if val == max(items)]

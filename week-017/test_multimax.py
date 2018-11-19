@@ -17,7 +17,7 @@ class MultiMaxTests(unittest.TestCase):
     def test_all_max(self):
         self.assertEqual(multimax([1, 1, 1, 1, 1]), [1, 1, 1, 1, 1])
 
-    def _test_lists(self):
+    def test_lists(self):
         inputs = [[0], [1], [], [0, 1], [1]]
         expected = [[1], [1]]
         self.assertEqual(multimax(inputs), expected)
