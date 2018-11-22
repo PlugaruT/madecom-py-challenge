@@ -6,7 +6,6 @@ def multimax(items: Iterable, key=lambda x: x):
     if not items:
         return []
     items = sorted(items, key=key, reverse=True)
-    import ipdb; ipdb.set_trace()
     (_, group) = next(groupby(items, key=key))
     return [value for value in group]
 
