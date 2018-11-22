@@ -1,8 +1,15 @@
-from collections import deque
+from itertools import groupby
 from typing import Iterable
-def multimax(items: Iterable):
-    # TODO [Tudor] Improve to receive a kwargs with key to be used for values comparison
+
+
+def multimax(items: Iterable, key=lambda x: x):
     if not items:
         return []
-    items = deque(items)
-    return [val for val in items if val == max(items)]
+    items = sorted(items, key=key, reverse=True)
+    import ipdb; ipdb.set_trace()
+    (_, group) = next(groupby(items, key=key))
+    return [value for value in group]
+
+
+if __name__ == "__main__":
+    print(multimax([1,2,3,4,4,4,4,4]))

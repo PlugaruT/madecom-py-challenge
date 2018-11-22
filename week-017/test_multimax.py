@@ -54,7 +54,7 @@ class MultiMaxTests(unittest.TestCase):
         self.assertEqual(multimax(squares), [16, 16])
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_key_function(self):
         words = ["alligator", "animal", "apple", "artichoke", "avalanche"]
         outputs = ["alligator", "artichoke", "avalanche"]
