@@ -68,8 +68,6 @@ class PermaDictTests(unittest.TestCase):
         d.force_set(5, 6)
         self.assertEqual(d, {1: 2, 3: 6, 5: 6})
 
-    # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
     def test_silent_flag_to_initializer(self):
         d = PermaDict({1: 2, 3: 4}, silent=True)
         d.update([(5, 6), (1, 8), (7, 8)])
@@ -80,8 +78,6 @@ class PermaDictTests(unittest.TestCase):
         e = PermaDict(silent=True, not_silent=False, super_silent=True)
         self.assertEqual(e, {'not_silent': False, 'super_silent': True})
 
-    # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
     def test_force_argument_to_update(self):
         d = PermaDict({1: 2, 3: 4}, silent=True)
         d.update([(5, 6), (1, 8), (7, 8)], force=True)
