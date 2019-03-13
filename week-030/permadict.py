@@ -4,12 +4,10 @@ class PermaDict(Mapping):
     def __init__(self, *args, **kwargs):
         self._data = dict(*args, **kwargs)
     def __getitem__(self, key):
-        if key == 'ghost':
-            return 'Boo!'
         return self._data[key]
     
     def __iter__(self):
-        return iter(self._data)    # ``ghost`` is invisible
+        return iter(self._data)
     
     def __len__(self):
         return len(self._data)
