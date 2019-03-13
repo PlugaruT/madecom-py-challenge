@@ -1,24 +1,15 @@
-from collections.abc import Mapping
+from collections import UserDict
 
-class PermaDict(Mapping):
+
+class PermaDict(UserDict):
     def __init__(self, *args, **kwargs):
-        self._data = dict(*args, **kwargs)
-    def __getitem__(self, key):
-        return self._data[key]
-    
-    def __iter__(self):
-        return iter(self._data)
-    
-    def __len__(self):
-        return len(self._data)
+        self._silent = kwargs.get('silent', False)
+        super().__init__(*args, **kwargs)
         
     def __setitem__(self, key, value):
-        if key in self._data:
+        if key in self.data and not self._silent:
             raise KeyError(f"'{key}' already in dictionary.")
-        self._data[key] = value
-    
-    def update(self, **kwargs):
-        self.__setitem__(**kwargs)
+        super().__setitem__(key, value)
     
     def force_set(self, key, value):
-        self._data[key] = value
+        self.data[key] = value

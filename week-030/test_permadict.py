@@ -62,8 +62,6 @@ class PermaDictTests(unittest.TestCase):
             d.update([(5, 6), (1, 8), (7, 8)])
         self.assertEqual(d, {1: 2, 3: 4, 5: 6})
 
-    # To test the Bonus part of this exercise, comment out the following line
-    # @unittest.expectedFailure
     def test_force_set_method(self):
         d = PermaDict({1: 2, 3: 4})
         d.force_set(3, 6)
