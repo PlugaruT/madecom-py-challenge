@@ -86,6 +86,12 @@ class PermaDictTests(unittest.TestCase):
         e.update(a=1, b=2, force=True)
         self.assertEqual(e, {'a': 1, 'b': 2})
 
+    def test_error_when_changing_value_after_force(self):
+       d = PermaDict()
+       d[4] = "the number four"
+       d.update([(5, 6), (1, 8), (7, 8)], force=True)
+       with self.assertRaises(KeyError):
+           d[4] = "the number 4"
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

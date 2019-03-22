@@ -17,6 +17,7 @@ class PermaDict(UserDict):
     def update(self, *args, **kwargs):
         self._force = kwargs.pop('force', False)
         super().update(*args, **kwargs)
+        self._force = False
     
     def force_set(self, key, value):
         self.data[key] = value
